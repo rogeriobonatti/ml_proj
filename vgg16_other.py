@@ -43,13 +43,13 @@ from keras.models import Sequential
 from keras.layers import Dropout, Flatten, Dense
 
 # path to the model weights files.
-weights_path = '../keras/examples/vgg16_weights.h5'
+weights_path = '/data/datasets/rbonatti/vgg16_weights.h5'
 top_model_weights_path = 'fc_model.h5'
 # dimensions of our images.
 img_width, img_height = 150, 150
 
-train_data_dir = 'cats_and_dogs_small/train'
-validation_data_dir = 'cats_and_dogs_small/validation'
+train_data_dir = '/data/datasets/rbonatti/data_processed/1/train80'
+validation_data_dir = '/data/datasets/rbonatti/data_processed/1/train20'
 nb_train_samples = 2000
 nb_validation_samples = 800
 epochs = 50
@@ -90,7 +90,7 @@ train_datagen = ImageDataGenerator(
     rescale=1. / 255,
     shear_range=0.2,
     zoom_range=0.2,
-    horizontal_flip=True)
+    vertical_flip=True)# NOTE: PLEASE MAKE SURE VERTICAL_FLIP
 
 test_datagen = ImageDataGenerator(rescale=1. / 255)
 
