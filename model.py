@@ -6,7 +6,7 @@ import cv2, numpy as np
 
 def VGG_16(weights_path=None):
     model = Sequential()
-    model.add(ZeroPadding2D((1,1),input_shape=(3,224,224), name='conv1_pad1'))
+    model.add(ZeroPadding2D((1,1), input_shape=(1,224,224), name='conv1_pad1_finetune'))
     model.add(Convolution2D(64, 3, 3, activation='relu',name='conv1_act1'))
     model.add(ZeroPadding2D((1,1),name='conv1_pad2'))
     model.add(Convolution2D(64, 3, 3, activation='relu',name='conv1_act2'))
@@ -47,11 +47,11 @@ def VGG_16(weights_path=None):
     model.add(Dropout(0.5,name='fc_dp1'))
     model.add(Dense(4096, activation='relu',name='fc_act2'))
     model.add(Dropout(0.5,name='fc_dp2'))
-    model.add(Dense(1000, activation='softmax',name='fc_max'))
+    model.add(Dense(1, activation='softmax',name='fc_max_finetune'))
 
     model.summary()
 
     if weights_path:
-        model.load_weights(weights_path)
+        model.load_weights(weights_path, by_name=True)
 
     return model
