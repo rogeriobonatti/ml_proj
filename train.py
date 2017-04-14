@@ -34,7 +34,7 @@ if __name__ == "__main__":
         class_mode='binary')
 
     # fine-tune the model
-    model.fit_generator(
+    network.fit_generator(
         train_generator,
         samples_per_epoch=nb_train_samples,
         epochs=epochs,
