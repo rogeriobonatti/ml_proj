@@ -35,9 +35,9 @@ if __name__ == "__main__":
 
     # fine-tune the model
     network.fit_generator(
-        train_generator,
-        samples_per_epoch=nb_train_samples,
+        generator=train_generator,
+        steps_per_epoch=nb_train_samples,
         epochs=epochs,
         validation_data=validation_generator,
-        nb_val_samples=nb_validation_samples)
+        validation_steps=nb_validation_samples)
         
