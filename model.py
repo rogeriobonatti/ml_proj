@@ -42,7 +42,7 @@ def VGG_16(weights_path=None):
     model.add(Convolution2D(512, 3, 3, activation='relu',name='conv5_act3'))
     model.add(MaxPooling2D((2,2), strides=(2,2),name='conv5_max'))
 
-    model.add(Flatten(,name='fc_flatten'))
+    model.add(Flatten(name='fc_flatten'))
     model.add(Dense(4096, activation='relu',name='fc_act1'))
     model.add(Dropout(0.5,name='fc_dp1'))
     model.add(Dense(4096, activation='relu',name='fc_act2'))
