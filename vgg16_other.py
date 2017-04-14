@@ -56,7 +56,7 @@ epochs = 50
 batch_size = 16
 
 # build the VGG16 network
-model = applications.VGG16(weights='imagenet', include_top=False, input_shape=(224, 224))
+model = applications.VGG16(weights='imagenet', include_top=False, input_shape=(1, 224, 224))
 print('Model loaded.')
 
 # build a classifier model to put on top of the convolutional model
