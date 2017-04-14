@@ -25,13 +25,15 @@ if __name__ == "__main__":
         train_data_dir,
         target_size=(img_height, img_width),
         batch_size=batch_size,
-        class_mode='binary')
+        class_mode='binary',
+        color_mode='grayscale')
 
     validation_generator = datagen.flow_from_directory(
         validation_data_dir,
         target_size=(img_height, img_width),
         batch_size=batch_size,
-        class_mode='binary')
+        class_mode='binary',
+        color_mode='grayscale')
 
     # fine-tune the model
     network.fit_generator(
