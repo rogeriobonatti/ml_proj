@@ -47,7 +47,7 @@ if __name__ == "__main__":
 
     # folder to save the weights
     if not os.path.exists(save_models_dir):
-    os.makedirs(save_models_dir)
+        os.makedirs(save_models_dir)
 
     # fine-tune the model
     network.fit_generator(
