@@ -26,7 +26,8 @@ if __name__ == "__main__":
 	    target_size=(img_height, img_width),
 	    batch_size=batch_size,
 	    class_mode=None,
-	    color_mode='grayscale')
+	    color_mode='grayscale'
+	    shuffle='False')
 
 	predictions=network.predict_generator(
 	    generator=valid_generator,
