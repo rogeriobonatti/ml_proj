@@ -13,7 +13,7 @@ if __name__ == "__main__":
 	network.load_weights('/data/datasets/rbonatti/ml_weights/weights.00-0.76.hdf5')
 
 	adam = Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
-    network.compile(optimizer=adam, loss='binary_crossentropy', metrics=['accuracy'])
+	network.compile(optimizer=adam, loss='binary_crossentropy', metrics=['accuracy'])
 
     # prepare data augmentation configuration
     datagen = ImageDataGenerator(rescale=1. / 255)
