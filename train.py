@@ -6,11 +6,11 @@ import os
 
 
 img_width, img_height = 224, 224
-train_data_dir = '/data/datasets/rbonatti/data_processed/1/train80'
+train_data_dir = '/data/datasets/rbonatti/data_processed/1/train'
 validation_data_dir = '/data/datasets/rbonatti/data_processed/1/train20'
 save_models_dir= '/data/datasets/rbonatti/ml_weights/'
 # nb_train_samples = 7998*2
-nb_train_samples = 100
+nb_train_samples = 10000
 nb_validation_samples = 2002*2
 epochs = 50
 batch_size = 16
