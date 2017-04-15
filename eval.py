@@ -27,8 +27,7 @@ if __name__ == "__main__":
 	    color_mode='grayscale')
 
 	predictions=network.predict_generator(
-	    generator=valid_generator,
-	    validation_data=valid_generator
+	    generator=valid_generator
 	    )
 
 	np.savetxt('/data/datasets/rbonatti/ml_prediction.out', predictions, delimiter=',')
