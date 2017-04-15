@@ -1,6 +1,7 @@
 import model
 from keras.optimizers import Adam
 from keras.preprocessing.image import ImageDataGenerator
+from keras.callbacks import ModelCheckpoint
 
 
 img_width, img_height = 224, 224
