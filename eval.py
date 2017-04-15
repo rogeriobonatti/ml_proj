@@ -2,6 +2,7 @@ import model
 from keras.optimizers import Adam
 from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import ModelCheckpoint
+import numpy as np
 
 img_width, img_height = 224, 224
 valid_data_dir = '/data/datasets/rbonatti/data_processed/1/valid'
