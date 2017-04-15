@@ -13,7 +13,6 @@ def VGG_16(weights_path=None):
     model.add(BatchNormalization())
     model.add(Activation('relu'))
     model.add(ZeroPadding2D((1,1),name='conv1_pad2'))
-    model.add(BatchNormalization(),name='batch_norm_2')
     model.add(Convolution2D(64, 3, 3, activation='relu',name='conv1_act2'))
     model.add(MaxPooling2D((2,2), strides=(2,2),name='conv1_max'))
 
