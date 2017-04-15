@@ -7,6 +7,7 @@ img_width, img_height = 224, 224
 valid_data_dir = '/data/datasets/rbonatti/data_processed/1/valid'
 nb_validation_samples = 10000
 batch_size = 16
+steps=10000/10
 
 if __name__ == "__main__":
 
@@ -28,6 +29,7 @@ if __name__ == "__main__":
 
 	predictions=network.predict_generator(
 	    generator=valid_generator
+	    steps=steps
 	    )
 
 	np.savetxt('/data/datasets/rbonatti/ml_prediction.out', predictions, delimiter=',')
