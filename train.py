@@ -35,6 +35,13 @@ if __name__ == "__main__":
         class_mode='binary',
         color_mode='grayscale')
 
+    # define callbacks
+    # cleanup_callback = LambdaCallback(on_train_end=lambda logs: [p.terminate() for p in processes if p.is_alive()])
+    # plot_loss_callback = LambdaCallback(on_epoch_end=lambda epoch, logs: plt.plot(np.arange(epoch),logs['loss']))
+    # batch_print_callback = LambdaCallback(on_batch_begin=lambda batch,logs: print(batch))
+    # saves the model weights after each epoch if the validation loss decreased
+    checkpointer = ModelCheckpoint(filepath="/data/datasets/rbonatti/ml_weights/weights.{epoch:02d}-{val_loss:.2f}.hdf5", verbose=1, save_best_only=True)
+
     # fine-tune the model
     network.fit_generator(
         generator=train_generator,
@@ -42,5 +49,6 @@ if __name__ == "__main__":
         nb_epoch=epochs,
         validation_data=validation_generator,
         nb_val_samples=nb_validation_samples
+        callbacks=[checkpointer]
         )
         
