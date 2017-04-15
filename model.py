@@ -2,6 +2,8 @@ from keras.models import Sequential
 from keras.layers.core import Flatten, Dense, Dropout
 from keras.layers.convolutional import Convolution2D, MaxPooling2D, ZeroPadding2D
 from keras.optimizers import SGD
+from keras.layers import Activation
+from keras.layers.normalization import BatchNormalization
 import cv2, numpy as np
 
 def VGG_16(weights_path=None):
