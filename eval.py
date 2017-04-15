@@ -28,7 +28,7 @@ if __name__ == "__main__":
 	    color_mode='grayscale')
 
 	predictions=network.predict_generator(
-	    generator=valid_generator
+	    generator=valid_generator,
 	    steps=steps
 	    )
 
