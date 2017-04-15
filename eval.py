@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
 	predictions=network.predict_generator(
 	    generator=valid_generator,
-	    validation_data=validation_generator
+	    validation_data=valid_generator
 	    )
 
 	np.savetxt('/data/datasets/rbonatti/ml_prediction.out', predictions, delimiter=',')
