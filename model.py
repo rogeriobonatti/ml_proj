@@ -7,7 +7,7 @@ import cv2, numpy as np
 def VGG_16(weights_path=None):
     model = Sequential()
     model.add(ZeroPadding2D((1,1), input_shape=(1,224,224), name='conv1_pad1_finetune'))
-    model.add(Convolution2D(64, 3, 3, activation='relu',name='conv1_act1'))
+    model.add(Convolution2D(64, 3, 3, activation='relu',name='conv1_act1_finetune'))
     model.add(ZeroPadding2D((1,1),name='conv1_pad2'))
     model.add(Convolution2D(64, 3, 3, activation='relu',name='conv1_act2'))
     model.add(MaxPooling2D((2,2), strides=(2,2),name='conv1_max'))
@@ -51,7 +51,7 @@ def VGG_16(weights_path=None):
 
     model.summary()
 
-    # if weights_path:
-    #     model.load_weights(weights_path, by_name=True)
+    if weights_path:
+        model.load_weights(weights_path, by_name=True)
 
     return model
