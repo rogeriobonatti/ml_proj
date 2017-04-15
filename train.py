@@ -48,7 +48,7 @@ if __name__ == "__main__":
         samples_per_epoch=nb_train_samples,
         nb_epoch=epochs,
         validation_data=validation_generator,
-        nb_val_samples=nb_validation_samples
+        nb_val_samples=nb_validation_samples,
         callbacks=[checkpointer]
         )
         
