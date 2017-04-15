@@ -24,7 +24,7 @@ if __name__ == "__main__":
 	    valid_data_dir,
 	    target_size=(img_height, img_width),
 	    batch_size=batch_size,
-	    class_mode='binary',
+	    class_mode=None,
 	    color_mode='grayscale')
 
 	predictions=network.predict_generator(
