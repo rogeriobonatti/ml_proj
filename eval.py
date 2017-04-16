@@ -34,4 +34,6 @@ if __name__ == "__main__":
 	    val_samples=val_samples
 	    )
 
+	predictions[predictions>=0.5]=1
+	predictions[predictions<0.5]=2
 	np.savetxt('/data/datasets/rbonatti/ml_prediction.out', predictions, delimiter=',')
