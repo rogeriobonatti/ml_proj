@@ -7,12 +7,12 @@ import os
 img_width, img_height = 224, 224
 train_data_dir = '/data/datasets/rbonatti/data_processed/2/train'
 validation_data_dir = '/data/datasets/rbonatti/data_processed/2/train20'
-save_models_dir= '/data/datasets/rbonatti/ml_weights2/'
+save_models_dir= '/data/datasets/rbonatti/ml_weights2_newtrial/'
 # nb_train_samples = 7998*2
-nb_train_samples = 1000*4
-nb_validation_samples = 10*4
-epochs = 100
-batch_size = 16
+nb_train_samples = 1000*64
+nb_validation_samples = 1000*4
+epochs = 200
+batch_size = 32
 
 if __name__ == "__main__":
 
