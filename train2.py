@@ -43,7 +43,7 @@ if __name__ == "__main__":
     # plot_loss_callback = LambdaCallback(on_epoch_end=lambda epoch, logs: plt.plot(np.arange(epoch),logs['loss']))
     # batch_print_callback = LambdaCallback(on_batch_begin=lambda batch,logs: print(batch))
     # saves the model weights after each epoch if the validation loss decreased
-    checkpointer = ModelCheckpoint(filepath="/data/datasets/rbonatti/ml_weights2/weights.{epoch:02d}-{val_loss:.2f}.hdf5", verbose=1)
+    checkpointer = ModelCheckpoint(filepath="/data/datasets/rbonatti/ml_weights2_newtrial/weights.{epoch:02d}-{val_loss:.2f}.hdf5", verbose=1)
 
     # folder to save the weights
     if not os.path.exists(save_models_dir):
