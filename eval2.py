@@ -34,5 +34,8 @@ if __name__ == "__main__":
 	    )
 
 	predictions=np.argmax(predictions,axis=1)
+	predictions.astype(int)
+	a=np.array([1])
+	predictions=predictions+a
 
 	np.savetxt('/data/datasets/rbonatti/ml_prediction_q2.out', predictions, delimiter=',')
