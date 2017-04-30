@@ -5,9 +5,9 @@ from keras.callbacks import ModelCheckpoint
 import numpy as np
 
 img_width, img_height = 224, 224
-valid_data_dir = '/data/datasets/rbonatti/data_processed/2/valid'
+valid_data_dir = '/data/datasets/rbonatti/data_processed/3/all'
 batch_size = 1
-val_samples=10000
+val_samples=300
 
 if __name__ == "__main__":
 
