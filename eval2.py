@@ -12,7 +12,7 @@ val_samples=10000
 if __name__ == "__main__":
 
 	network = model_q2.VGG_16('/data/datasets/rbonatti/vgg16_weights_with_name.h5')
-	network.load_weights('/data/datasets/rbonatti/ml_weights2/weights.25-1.04.hdf5')
+	network.load_weights('/data/datasets/rbonatti/ml_weights2/weights.25-2.47.hdf5')
 
 	adam = Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
 	network.compile(optimizer=adam, loss='categorical_crossentropy', metrics=['accuracy'])
