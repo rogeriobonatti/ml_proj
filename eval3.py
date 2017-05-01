@@ -3,6 +3,7 @@ from keras.optimizers import Adam
 from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import ModelCheckpoint
 import numpy as np
+from sklearn.cluster import KMeans
 
 img_width, img_height = 224, 224
 valid_data_dir = '/data/datasets/rbonatti/data_processed/3'
@@ -36,5 +37,10 @@ if __name__ == "__main__":
 	# predictions.astype(int)
 	# a=np.array([1])
 	# predictions=predictions+a
+
+	scores=np.zeros(20)
+for i in range(5):
+	kmeans = KMeans(n_clusters=i+1).fit(predictions)
+	scores[i]=kmeans.score(predictions)
 
 	np.savetxt('/data/datasets/rbonatti/ml_prediction_q3.out', predictions, delimiter=',')
