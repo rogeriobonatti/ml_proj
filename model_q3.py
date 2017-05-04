@@ -71,8 +71,8 @@ def VGG_16(weights_path=None):
     model.add(MaxPooling2D((2,2), strides=(2,2),name='conv5_max'))
 
     model.add(Flatten(name='fc_flatten_finetune'))
-    model.add(Dense(4096,name='fc_act1_finetune'))
-    model.add(BatchNormalization(axis=1))
+    # model.add(Dense(4096,name='fc_act1_finetune'))
+    # model.add(BatchNormalization(axis=1))
     # model.add(Activation('relu'))
     # model.add(Dropout(0.5,name='fc_dp1_finetune'))
     # model.add(Dense(4096,name='fc_act2_finetune'))

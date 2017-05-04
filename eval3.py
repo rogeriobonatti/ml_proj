@@ -36,7 +36,7 @@ if __name__ == "__main__":
 	    val_samples=val_samples
 	    )
 
-	pca=PCA(n_components=50)
+	pca=PCA(n_components=2)
 	pred_new=pca.fit_transform(predictions)
 
 	scores=np.zeros(20)
