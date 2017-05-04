@@ -5,6 +5,8 @@ from keras.callbacks import ModelCheckpoint
 import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
+from shutil import copyfile
+import os
 
 img_width, img_height = 224, 224
 valid_data_dir = '/data/datasets/rbonatti/data_processed/3'
@@ -42,5 +44,20 @@ if __name__ == "__main__":
 	for i in range(20):
 		kmeans = KMeans(n_clusters=i+1).fit(pred_new)
 		scores[i]=kmeans.score(pred_new)
+
+	kmeans=KMeans(n_clusters=4).fit(pred_new)
+	res=kmeans.predict(pred_new)
+
+	# copy files to respective clusters to see how things are
+for i in range(300):
+	n=str(i+1)
+	filename_src='/data/datasets/rbonatti/data_processed/3/all/'
+	filename_src+=n.zfill(5)+'.jpg'
+	cluster=res[i]
+	directory='/data/datasets/rbonatti/data_processed/3/clusters/'+str(cluster)
+	if not os.path.exists(directory):
+		os.makedirs(directory)
+	filename_dst='/data/datasets/rbonatti/data_processed/3/clusters/'+str(cluster)+'/'+n.zfill(5)+'.jpg'
+	copyfile(filename_src, filename_dst)
 
 	np.savetxt('/data/datasets/rbonatti/ml_prediction_q3.out', predictions, delimiter=',')
