@@ -54,10 +54,10 @@ for i in range(300):
 	filename_src='/data/datasets/rbonatti/data_processed/3/all/'
 	filename_src+=n.zfill(5)+'.jpg'
 	cluster=res[i]
-	directory='/data/datasets/rbonatti/data_processed/3/clusters/'+str(cluster)
+	directory='/data/datasets/rbonatti/data_processed/3_clusters/'+str(cluster)
 	if not os.path.exists(directory):
 		os.makedirs(directory)
-	filename_dst='/data/datasets/rbonatti/data_processed/3/clusters/'+str(cluster)+'/'+n.zfill(5)+'.jpg'
+	filename_dst='/data/datasets/rbonatti/data_processed/3_clusters/'+str(cluster)+'/'+n.zfill(5)+'.jpg'
 	copyfile(filename_src, filename_dst)
 
 	np.savetxt('/data/datasets/rbonatti/ml_prediction_q3.out', predictions, delimiter=',')
