@@ -4,6 +4,7 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import ModelCheckpoint
 import numpy as np
 from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
 
 img_width, img_height = 224, 224
 valid_data_dir = '/data/datasets/rbonatti/data_processed/3'
@@ -33,14 +34,13 @@ if __name__ == "__main__":
 	    val_samples=val_samples
 	    )
 
-	# predictions=np.argmax(predictions,axis=1)
-	# predictions.astype(int)
-	# a=np.array([1])
-	# predictions=predictions+a
+	pca=PCA(n_components=50)
+	pred_new=pca.fit_transform(predictions)
 
 	scores=np.zeros(20)
-for i in range(5):
-	kmeans = KMeans(n_clusters=i+1).fit(predictions)
-	scores[i]=kmeans.score(predictions)
+
+	for i in range(20):
+		kmeans = KMeans(n_clusters=i+1).fit(pred_new)
+		scores[i]=kmeans.score(pred_new)
 
 	np.savetxt('/data/datasets/rbonatti/ml_prediction_q3.out', predictions, delimiter=',')
