@@ -15,7 +15,8 @@ val_samples=300
 
 if __name__ == "__main__":
 
-	network = model_q3.VGG_16('/data/datasets/rbonatti/ml_weights2/weights.25-2.47.hdf5')
+	# network = model_q3.VGG_16('/data/datasets/rbonatti/ml_weights2/weights.25-2.47.hdf5')
+	network = model_q3.VGG_16('/data/datasets/rbonatti/ml_weights3/weights.16-8.53.hdf5')
 
 	adam = Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
 	network.compile(optimizer=adam, loss='categorical_crossentropy', metrics=['accuracy'])
@@ -45,19 +46,19 @@ if __name__ == "__main__":
 		kmeans = KMeans(n_clusters=i+1).fit(pred_new)
 		scores[i]=kmeans.score(pred_new)
 
-kmeans=KMeans(n_clusters=10).fit(pred_new)
-res=kmeans.predict(pred_new)
+	kmeans=KMeans(n_clusters=10).fit(pred_new)
+	res=kmeans.predict(pred_new)
 
-# copy files to respective clusters to see how things are
-for i in range(300):
-	n=str(i+1)
-	filename_src='/data/datasets/rbonatti/data_processed/3/all/'
-	filename_src+=n.zfill(5)+'.jpg'
-	cluster=res[i]
-	directory='/data/datasets/rbonatti/data_processed/3_clusters/'+str(cluster)
-	if not os.path.exists(directory):
-		os.makedirs(directory)
-	filename_dst='/data/datasets/rbonatti/data_processed/3_clusters/'+str(cluster)+'/'+n.zfill(5)+'.jpg'
-	copyfile(filename_src, filename_dst)
+	# copy files to respective clusters to see how things are
+	for i in range(300):
+		n=str(i+1)
+		filename_src='/data/datasets/rbonatti/data_processed/3/all/'
+		filename_src+=n.zfill(5)+'.jpg'
+		cluster=res[i]
+		directory='/data/datasets/rbonatti/data_processed/3_clusters/'+str(cluster)
+		if not os.path.exists(directory):
+			os.makedirs(directory)
+		filename_dst='/data/datasets/rbonatti/data_processed/3_clusters/'+str(cluster)+'/'+n.zfill(5)+'.jpg'
+		copyfile(filename_src, filename_dst)
 
-	np.savetxt('/data/datasets/rbonatti/ml_prediction_q3.out', predictions, delimiter=',')
+		np.savetxt('/data/datasets/rbonatti/ml_prediction_q3.out', predictions, delimiter=',')
