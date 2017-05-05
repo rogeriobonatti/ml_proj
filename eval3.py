@@ -36,7 +36,7 @@ if __name__ == "__main__":
 	    val_samples=val_samples
 	    )
 
-	pca=PCA(n_components=2)
+	pca=PCA(n_components=100)
 	pred_new=pca.fit_transform(predictions)
 
 	scores=np.zeros(20)
@@ -45,10 +45,10 @@ if __name__ == "__main__":
 		kmeans = KMeans(n_clusters=i+1).fit(pred_new)
 		scores[i]=kmeans.score(pred_new)
 
-	kmeans=KMeans(n_clusters=4).fit(pred_new)
-	res=kmeans.predict(pred_new)
+kmeans=KMeans(n_clusters=10).fit(pred_new)
+res=kmeans.predict(pred_new)
 
-	# copy files to respective clusters to see how things are
+# copy files to respective clusters to see how things are
 for i in range(300):
 	n=str(i+1)
 	filename_src='/data/datasets/rbonatti/data_processed/3/all/'
