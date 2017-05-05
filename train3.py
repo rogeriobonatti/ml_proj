@@ -22,23 +22,22 @@ if __name__ == "__main__":
     network.compile(optimizer=adam, loss='categorical_crossentropy', metrics=['accuracy'])
 
     # prepare data augmentation configuration
-    datagen = ImageDataGenerator(rescale=1. / 255)
+    datagen = ImageDataGenerator(rescale=1. / 255,zoom_range=0.7)
 
     train_generator = datagen.flow_from_directory(
         train_data_dir,
         target_size=(img_height, img_width),
         batch_size=batch_size,
         class_mode='categorical',
-        color_mode='grayscale',
-        zoom_range=0.7)
+        color_mode='grayscale'
+        )
 
     validation_generator = datagen.flow_from_directory(
         validation_data_dir,
         target_size=(img_height, img_width),
         batch_size=batch_size,
         class_mode='categorical',
-        color_mode='grayscale',
-        zoom_range=0.7)
+        color_mode='grayscale')
 
     # define callbacks
     # cleanup_callback = LambdaCallback(on_train_end=lambda logs: [p.terminate() for p in processes if p.is_alive()])
