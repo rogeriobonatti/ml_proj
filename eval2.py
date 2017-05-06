@@ -6,7 +6,7 @@ import numpy as np
 
 img_width, img_height = 224, 224
 # valid_data_dir = '/data/datasets/rbonatti/data_processed/2/valid'
-valid_data_dir = '/data/datasets/rbonatti/data_processed_test/test2'
+valid_data_dir = '/data/datasets/rbonatti/data_processed/data_processed_test/test2'
 batch_size = 1
 val_samples=10000
 
