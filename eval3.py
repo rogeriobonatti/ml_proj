@@ -46,7 +46,7 @@ if __name__ == "__main__":
 		kmeans = KMeans(n_clusters=i+1).fit(pred_new)
 		scores[i]=kmeans.score(pred_new)
 
-	kmeans=KMeans(n_clusters=10).fit(pred_new)
+	kmeans=KMeans(n_clusters=5).fit(pred_new)
 	res=kmeans.predict(pred_new)
 
 	# copy files to respective clusters to see how things are
@@ -61,4 +61,4 @@ if __name__ == "__main__":
 		filename_dst='/data/datasets/rbonatti/data_processed/3_clusters/'+str(cluster)+'/'+n.zfill(5)+'.jpg'
 		copyfile(filename_src, filename_dst)
 
-		np.savetxt('/data/datasets/rbonatti/ml_prediction_q3.out', predictions, delimiter=',')
+	np.savetxt('/data/datasets/rbonatti/ml_prediction_q3.out', predictions, delimiter=',')

@@ -5,7 +5,8 @@ from keras.callbacks import ModelCheckpoint
 import numpy as np
 
 img_width, img_height = 224, 224
-valid_data_dir = '/data/datasets/rbonatti/data_processed/2/valid'
+# valid_data_dir = '/data/datasets/rbonatti/data_processed/2/valid'
+valid_data_dir = '/data/datasets/rbonatti/data_processed_test/test2'
 batch_size = 1
 val_samples=10000
 
@@ -38,4 +39,4 @@ if __name__ == "__main__":
 	a=np.array([1])
 	predictions=predictions+a
 
-	np.savetxt('/data/datasets/rbonatti/ml_prediction_q2.out', predictions, delimiter=',')
+	np.savetxt('/data/datasets/rbonatti/ml_prediction_q2_test2.out', predictions, delimiter=',')
